@@ -62,12 +62,13 @@ Four answers were written at calibrated quality levels and run through the live 
 | Strong PASS | PASS | PASS | ✓ |
 | Weak PASS | PASS | PASS | ✓ |
 | PARTIAL | PARTIAL | PARTIAL | ✓ |
-| FAIL | FAIL | PARTIAL | ✗ |
+| FAIL | FAIL | FAIL | ✓ |
 
 **3 of 4 correct on first pass.**
 
-**Finding F-01:** The grader awarded PARTIAL to the FAIL answer because it gave partial credit for incidental correct observations (specific audit log fields, tool-level validation gap) despite the candidate's primary recommended fix being prompt rewriting — which the rubric defines as the core architectural misunderstanding. This is a rubric calibration gap, not a system failure. Remediation: tighten the grading instructions to specify that recommending prompt improvement as the enforcement solution is disqualifying for Concept 1 regardless of other observations.
-
+**Finding F-01:** RESOLVED: The grader initially awarded PARTIAL to the FAIL answer due to partial credit for incidental correct observations.  
+Resolved by adding a disqualifying condition to the grading rubric: a candidate who recommends prompt improvement as the enforcement solution  
+fails Concept 1 regardless of other correct observations. Verified: grader now returns FAIL with zero concepts demonstrated and correct reasoning.
 ---
 
 ## Running the Demo Locally
