@@ -64,7 +64,7 @@ Four answers were written at calibrated quality levels and run through the live 
 | PARTIAL | PARTIAL | PARTIAL | ✓ |
 | FAIL | FAIL | FAIL | ✓ |
 
-**3 of 4 correct on first pass.**
+**4 of 4 correct after rubric calibration.**
 
 ### **Finding F-01:**  
 
