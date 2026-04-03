@@ -88,6 +88,7 @@ IMPORTANT GRADING PRINCIPLES:
   not just told to the AI" has demonstrated concept 1 even without using the word "hook."
 - Do not penalize for additional correct observations beyond the rubric.
 - Do penalize for actively wrong statements (e.g., "adding more detail to the system prompt would fix this").
+- DISQUALIFYING FOR CONCEPT 1: If the candidate recommends improving, rewriting, or strengthening the system prompt as part of the enforcement solution, Concept 1 is NOT demonstrated — regardless of any other correct observations in the response. A candidate who understands Concept 1 knows the prompt is irrelevant to the control. Recommending prompt changes as a fix proves they do not.
 - Be direct and specific. Name exactly which concepts were demonstrated and which were missing.
 - Your grade must be one of: PASS, PARTIAL, or FAIL.
 
