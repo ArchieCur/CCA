@@ -66,11 +66,12 @@ Four answers were written at calibrated quality levels and run through the live 
 
 **3 of 4 correct on first pass.**
 
-#### **Finding F-01:**  
+### **Finding F-01:**  
 
-RESOLVED: The grader initially awarded PARTIAL to the FAIL answer due to partial credit for incidental correct observations.  
-Resolved by adding a disqualifying condition to the grading rubric: a candidate who recommends prompt improvement as the enforcement solution  
+RESOLVED: The grader initially awarded PARTIAL to the FAIL answer due to partial credit for incidental correct observations.
+Resolved by adding a disqualifying condition to the grading rubric: a candidate who recommends prompt improvement as the enforcement solution
 fails Concept 1 regardless of other correct observations. Verified: grader now returns FAIL with zero concepts demonstrated and correct reasoning.
+ 
 ---
 
 ## Running the Demo Locally
