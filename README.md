@@ -79,7 +79,7 @@ This finding went through two iterations, documented here in full because the it
 - **v1 fix (disqualifier rule):** Added a rule that nullified Concept 1 when the candidate recommended prompt changes. This reduced but did not eliminate instability — the grader could still award partial credit on Concepts 2 and 3 and reach PARTIAL even with Concept 1 disqualified.
 
 - **v2 fix (full resolution, current):** Three changes applied together: (a) grade ceiling rule — if Concept 1 is disqualified, maximum grade is FAIL regardless of other concepts; (b) Concept 2 specificity threshold — vague tool-validation language no longer qualifies as demonstrating hook-based interception; (c) grading scale simplified from 4 tiers (Strong Pass / Weak Pass / Partial / Fail) to 3 tiers (Pass / Weak Pass / Fail), eliminating the ambiguous middle zone. Verified stable across repeated runs.
-
+ 
 ---
 
 ## Running the Demo Locally
