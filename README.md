@@ -46,27 +46,39 @@ Candidates write a free-text response identifying the architectural failure and 
 ### Grading Output
 
 The grader returns structured JSON rendered as:
-- **PASS / PARTIAL / FAIL** verdict
+- **PASS / WEAK PASS / FAIL** verdict
 - Concepts demonstrated and concepts missing
 - Key strength and key gap
 - Examiner note with specific, actionable feedback grounded in the SOX context
+
+**Grading scale:**
+- **Pass** — all three concepts demonstrated
+- **Weak Pass** — core architectural insight present, one concept incomplete
+- **Fail** — conceptual threshold not crossed, or Concept 1 disqualified by prompt-change recommendation
 
 ---
 
 ## Test Results
 
-Four answers were written at calibrated quality levels and run through the live grader:
+Three answers were written at calibrated quality levels and run through the live grader:
 
 | Answer | Expected | Result | Match |
 |--------|----------|--------|-------|
-| Strong PASS | PASS | PASS | ✓ |
-| Weak PASS | PASS | PASS | ✓ |
-| PARTIAL | PARTIAL | PARTIAL | ✓ |
-| FAIL | FAIL | PARTIAL | ✗ |
+| Pass | PASS | PASS | ✓ |
+| Weak Pass | WEAK PASS | WEAK PASS | ✓ |
+| Fail | FAIL | FAIL | ✓ |
 
-**3 of 4 correct on first pass.**
+**3 of 3 correct after rubric calibration.**
 
-**Finding F-01:** The grader awarded PARTIAL to the FAIL answer because it gave partial credit for incidental correct observations (specific audit log fields, tool-level validation gap) despite the candidate's primary recommended fix being prompt rewriting — which the rubric defines as the core architectural misunderstanding. This is a rubric calibration gap, not a system failure. Remediation: tighten the grading instructions to specify that recommending prompt improvement as the enforcement solution is disqualifying for Concept 1 regardless of other observations.
+**Finding F-01 — Full Resolution Story:**
+
+This finding went through two iterations, documented here in full because the iterative diagnosis is itself a demonstration of the framework's refinability.
+
+- **Original problem:** The Fail example answer graded inconsistently — sometimes FAIL, sometimes PARTIAL. Root cause was two interacting gaps: no grade ceiling on the Concept 1 disqualifier, and insufficient specificity threshold on Concept 2 (vague tool-validation language was intermittently credited as hook-based interception).
+
+- **v1 fix (disqualifier rule):** Added a rule that nullified Concept 1 when the candidate recommended prompt changes. This reduced but did not eliminate instability — the grader could still award partial credit on Concepts 2 and 3 and reach PARTIAL even with Concept 1 disqualified.
+
+- **v2 fix (full resolution, current):** Three changes applied together: (a) grade ceiling rule — if Concept 1 is disqualified, maximum grade is FAIL regardless of other concepts; (b) Concept 2 specificity threshold — vague tool-validation language no longer qualifies as demonstrating hook-based interception; (c) grading scale simplified from 4 tiers (Strong Pass / Weak Pass / Partial / Fail) to 3 tiers (Pass / Weak Pass / Fail), eliminating the ambiguous middle zone. Verified stable across repeated runs.
 
 ---
 
@@ -99,7 +111,7 @@ npm run dev
 
 ### Using the Demo
 
-The Question tab includes four **Load Example Answer** buttons (Strong PASS → FAIL) so a reviewer can see the full grading range without typing. Click any button, hit **Submit for AI Grading**, and the result appears in the Result tab within a few seconds.
+The Question tab includes three **Load Example Answer** buttons (Pass, Weak Pass, Fail) so a reviewer can see the full grading range without typing. Click any button, hit **Submit for AI Grading**, and the result appears in the Result tab within a few seconds.
 
 The **CSV Source Row** tab shows the exact row the question was generated from. The **Grading Rubric** tab shows how the rubric maps to the CSV fields.
 
